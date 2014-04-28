@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{478122CE-243F-4B61-9D3D-19E999F536BC}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{8D3FD16D-0FCF-4A21-9153-E1FE0DC3C579}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FraudPrevention</RootNamespace>
-    <AssemblyName>FraudPrevention</AssemblyName>
+    <RootNamespace>FraudPrevention.App</RootNamespace>
+    <AssemblyName>FraudPrevention.App</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ProductVersion>12.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,19 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abreviatures\AbreviaturesList.cs" />
-    <Compile Include="Abreviatures\AbreviaturesListEditable.cs" />
-    <Compile Include="Abreviatures\StateAbreviatures.cs" />
-    <Compile Include="AddressChecker.cs" />
-    <Compile Include="EmailChecker.cs" />
-    <Compile Include="FraudulentOrderList.cs" />
-    <Compile Include="Abreviatures\IAbreviatures.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="OrderCreator.cs" />
-    <Compile Include="OrderList.cs" />
-    <Compile Include="OrderProcessor.cs" />
+    <Compile Include="Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Abreviatures\StreetAbreviatures.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SampleInput.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FraudPrevention\FraudPrevention.csproj">
+      <Project>{478122ce-243f-4b61-9d3d-19e999f536bc}</Project>
+      <Name>FraudPrevention</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

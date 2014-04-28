@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FraudPrevention.Abreviatures;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,13 @@ using System.Text.RegularExpressions;
 
 namespace FraudPrevention
 {
-    public class AddressChecker
+    internal class AddressChecker
     {
         private string address;
         private string fraudAddress;
-        private IDictionary<string, string> abreviatures;
+        private IAbreviatures abreviatures;
 
-        public AddressChecker(string address, string fraudAddress, IDictionary<string, string> abreviatures)
+        public AddressChecker(string address, string fraudAddress, IAbreviatures abreviatures)
         {
             this.address = address;
             this.fraudAddress = fraudAddress;
@@ -30,7 +31,7 @@ namespace FraudPrevention
 
         private void CheckAbreviatures()
         {
-            foreach (var item in abreviatures)
+            foreach (var item in abreviatures.GetAbreviatures())
             {
                 string pattern = String.Concat(@"\b", item.Key.ToString(), @"\b");
                 string replace = item.Value.ToString();

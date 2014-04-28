@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FraudPrevention.Abreviatures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,8 +65,8 @@ namespace FraudPrevention
 
         private bool IsFraudulentOrderWithSameLocation()
         {
-            AddressChecker addressChecker = new AddressChecker(actualOrder.StreetAddress, this.comparerOrder.StreetAddress, new Abreviatures().Streets);
-            AddressChecker stateChecker = new AddressChecker(actualOrder.State, this.comparerOrder.State, new Abreviatures().States);
+            AddressChecker addressChecker = new AddressChecker(actualOrder.StreetAddress, this.comparerOrder.StreetAddress, new StreetAbreviatures());
+            AddressChecker stateChecker = new AddressChecker(actualOrder.State, this.comparerOrder.State, new StateAbreviatures());
 
             bool isSameAddress = addressChecker.IsSameAddress();
             bool isSameState = stateChecker.IsSameAddress();

@@ -11,9 +11,9 @@ namespace FraudPrevention.Tests
         [TestMethod]
         public void OrdersWithSameEmailAndDealIdAreFraudulent()
         {
-            string order1 = "1,1,bugs@bunny.com,123 Sesame St.,New York,NY,10011,12345689010";
+            string order1 = "1,1,BUgs1+10@bunny.com,123 Sesame St.,New York,NY,10011,12345689010";
             string order2 = "2,1,elmer@fudd.com,123 Sesame12 St.,New York,NY,10011,10987654321";
-            string order3 = "3,1,bugs@bunny.com,123 Sesame14 St.,New York,NY,10011,12345689010";
+            string order3 = "3,1,bugs.1@bunny.com,123 Sesame14 St.,New York,NY,10011,12345689010";
             
             List<string> orderStringList = new List<string>()
             {
@@ -30,8 +30,8 @@ namespace FraudPrevention.Tests
         [TestMethod]
         public void OrdersWithSameLocationAndDealIdAreFraudulent()
         {
-            string order1 = "1,1,bugs@bunny.com,123 Sesame St.,New York,NY,10011,12345689010";
-            string order2 = "2,1,elmer@fudd.com,123 Sesame St.,New York,NY,10011,10987654321";
+            string order1 = "1,1,bugs@bunny.com,123 SESame St.,New York,NY,10011,12345689010";
+            string order2 = "2,1,elmer@fudd.com,123 Sesame Street,New York,new york,10011,10987654321";
             string order3 = "3,3,bugs@bunny.com,123 Sesame St.,New York,NY,10011,12345689010";
 
             List<string> orderStringList = new List<string>()
@@ -48,7 +48,6 @@ namespace FraudPrevention.Tests
 
         private int GetNumberOfFraudulentOrders(List<string> orderStringList)
         {
-
             OrderList orderList = new OrderCreator(orderStringList).Create();
 
             OrderProcessor orderProcessor = new OrderProcessor(orderList);
