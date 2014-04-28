@@ -49,7 +49,7 @@ namespace FraudPrevention.Tests
         private int GetNumberOfFraudulentOrders(List<string> orderStringList)
         {
 
-            List<Order> orderList = new OrderCreator(orderStringList).Create();
+            OrderList orderList = new OrderCreator(orderStringList).Create();
 
             OrderProcessor orderProcessor = new OrderProcessor(orderList);
             FraudulentOrderList fraudulentOrders = orderProcessor.Process();

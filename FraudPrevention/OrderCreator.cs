@@ -7,16 +7,16 @@ namespace FraudPrevention
 {
     public class OrderCreator
     {
-        private List<string> orderStringList;
+        private IEnumerable<string> orderStringList;
 
-        public OrderCreator(List<string> orderStringList)
+        public OrderCreator(IEnumerable<string> orderStringList)
         {
             this.orderStringList = orderStringList;
         }
 
-        public List<Order> Create()
+        public OrderList Create()
         {
-            List<Order> orderList = new List<Order>();
+            OrderList orderList = new OrderList();
 
             foreach (var stringOrder in this.orderStringList)
             {

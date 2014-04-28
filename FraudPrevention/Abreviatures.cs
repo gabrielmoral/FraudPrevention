@@ -8,14 +8,14 @@ namespace FraudPrevention
 {
     public class Abreviatures
     {
-        private Hashtable streets;
+        private IDictionary<string, string> streets;
 
-        private Hashtable states;
+        private IDictionary<string, string> states;
 
         public Abreviatures()
         {
-            this.streets = new Hashtable();
-            this.states = new Hashtable();
+            this.streets = new Dictionary<string, string>();
+            this.states = new Dictionary<string, string>();
 
             this.streets.Add("street", "st.");
             this.streets.Add("road", "rd.");
@@ -25,12 +25,12 @@ namespace FraudPrevention
             this.states.Add("california", "ca");
         }
 
-        public Hashtable Streets
+        public IDictionary<string, string> Streets
         {
             get { return this.streets; }
         }
 
-        public Hashtable States
+        public IDictionary<string, string> States
         {
             get { return this.states; }
         }

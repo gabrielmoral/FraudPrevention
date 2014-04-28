@@ -7,13 +7,13 @@ namespace FraudPrevention
 {
     public class FraudulentOrderList
     {
-        private List<int> fraudulentOrderIds = new List<int>();
+        private OrderList fraudulentOrderList = new OrderList();
 
-        public void AddOrderIfNotExists(int orderId)
+        public void AddOrderIfNotExists(Order order)
         {
-            if (!fraudulentOrderIds.Where(x => x == orderId).Any())
+            if (!this.fraudulentOrderList.Where(x => x.OrderId == order.OrderId).Any())
             {
-                fraudulentOrderIds.Add(orderId);
+                this.fraudulentOrderList.Add(order);
             }
         }
 
@@ -21,7 +21,7 @@ namespace FraudPrevention
         {
             get
             {
-                return fraudulentOrderIds.Count;
+                return this.fraudulentOrderList.Count();
             }
         }
 
@@ -29,9 +29,9 @@ namespace FraudPrevention
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach (var id in this.fraudulentOrderIds)
+            foreach (var order in this.fraudulentOrderList)
             {
-                sb.Append(id);
+                sb.Append(order.OrderId);
                 sb.Append(",");
             }
 

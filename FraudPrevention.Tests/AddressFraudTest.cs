@@ -2,6 +2,7 @@
 using FraudPrevention;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace FraudPrevention.Tests
 {
@@ -41,7 +42,7 @@ namespace FraudPrevention.Tests
             Assert.IsTrue(isSameState);
         }
 
-        private bool IsSameAddress(string address, string fraudAddress, Hashtable abreviatures)
+        private bool IsSameAddress(string address, string fraudAddress, IDictionary<string, string> abreviatures)
         {
             return new AddressChecker(address, fraudAddress, abreviatures).IsSameAddress();
         }

@@ -7,11 +7,11 @@ namespace FraudPrevention
 {
     public class OrderProcessor
     {
-        private List<Order> orderList;
+        private OrderList orderList;
         private Order actualOrder;
         private Order comparerOrder;
 
-        public OrderProcessor(List<Order> orderList)
+        public OrderProcessor(OrderList orderList)
         {
             this.orderList = orderList;
         }
@@ -34,12 +34,10 @@ namespace FraudPrevention
                     bool isFraudulentByEmail = this.IsFraudulentOrderWithSameEmailAndDealId();
                     bool isFraudulentByLocation = this.IsFraudulentOrderWithSameLocationAndDealId();
 
-
-
                     if (isFraudulentByEmail || isFraudulentByLocation)
                     {
-                        fraudulentOrders.AddOrderIfNotExists(this.actualOrder.OrderId);
-                        fraudulentOrders.AddOrderIfNotExists(this.comparerOrder.OrderId);
+                        fraudulentOrders.AddOrderIfNotExists(this.actualOrder);
+                        fraudulentOrders.AddOrderIfNotExists(this.comparerOrder);
                     }
                 }
             }

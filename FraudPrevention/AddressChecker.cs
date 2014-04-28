@@ -11,9 +11,9 @@ namespace FraudPrevention
     {
         private string address;
         private string fraudAddress;
-        private Hashtable abreviatures;
+        private IDictionary<string, string> abreviatures;
 
-        public AddressChecker(string address, string fraudAddress, Hashtable abreviatures)
+        public AddressChecker(string address, string fraudAddress, IDictionary<string, string> abreviatures)
         {
             this.address = address;
             this.fraudAddress = fraudAddress;
@@ -30,7 +30,7 @@ namespace FraudPrevention
 
         private void CheckAbreviatures()
         {
-            foreach (DictionaryEntry item in abreviatures)
+            foreach (var item in abreviatures)
             {
                 string pattern = String.Concat(@"\b", item.Key.ToString(), @"\b");
                 string replace = item.Value.ToString();

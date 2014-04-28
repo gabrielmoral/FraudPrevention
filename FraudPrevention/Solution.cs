@@ -15,7 +15,7 @@ class Solution
             orderStringList.Add(Console.ReadLine());
         }
 
-        List<Order> orderList = new OrderCreator(orderStringList).Create();
+        OrderList orderList = new OrderCreator(orderStringList).Create();
 
         OrderProcessor orderProcessor = new OrderProcessor(orderList);
         FraudulentOrderList fraudulentOrders = orderProcessor.Process();
