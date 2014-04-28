@@ -22,12 +22,9 @@ namespace FraudPrevention.Tests
                 order3
             };
 
-            List<Order> orderList = new OrderCreator(orderStringList).Create();
+            var fraudulentOrders = this.GetNumberOfFraudulentOrders(orderStringList);
 
-            OrderProcessor orderProcessor = new OrderProcessor(orderList);
-            FraudulentOrderList fraudulentOrders = orderProcessor.Process();
-
-            Assert.AreEqual(2, fraudulentOrders.NumberOfFraudulentOrders);
+            Assert.AreEqual(2, fraudulentOrders);
         }
 
         [TestMethod]
@@ -44,12 +41,20 @@ namespace FraudPrevention.Tests
                 order3
             };
 
+            var fraudulentOrders = this.GetNumberOfFraudulentOrders(orderStringList);
+
+            Assert.AreEqual(2, fraudulentOrders);
+        }
+
+        private int GetNumberOfFraudulentOrders(List<string> orderStringList)
+        {
+
             List<Order> orderList = new OrderCreator(orderStringList).Create();
 
             OrderProcessor orderProcessor = new OrderProcessor(orderList);
             FraudulentOrderList fraudulentOrders = orderProcessor.Process();
 
-            Assert.AreEqual(2, fraudulentOrders.NumberOfFraudulentOrders);
+            return fraudulentOrders.NumberOfFraudulentOrders;
         }
 
     }

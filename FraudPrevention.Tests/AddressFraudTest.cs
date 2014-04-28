@@ -1,6 +1,7 @@
 ﻿using System;
 using FraudPrevention;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections;
 
 namespace FraudPrevention.Tests
 {
@@ -13,7 +14,7 @@ namespace FraudPrevention.Tests
             string address = "123 Sesame St.";
             string fraudAddress = "123 SeSAME st.";
 
-            bool isSameAddress = new AddressChecker(address, fraudAddress, new Abreviatures().Streets).IsSameAddress();
+            bool isSameAddress = this.IsSameAddress(address, fraudAddress, new Abreviatures().Streets);
 
             Assert.IsTrue(isSameAddress);
         }
@@ -24,7 +25,7 @@ namespace FraudPrevention.Tests
             string address = "123 Sesame St.";
             string fraudAddress = "123 Sesame Street";
 
-            bool isSameAddress = new AddressChecker(address, fraudAddress, new Abreviatures().Streets).IsSameAddress();
+            bool isSameAddress = this.IsSameAddress(address, fraudAddress, new Abreviatures().Streets);
 
             Assert.IsTrue(isSameAddress);
         }
@@ -35,9 +36,14 @@ namespace FraudPrevention.Tests
             string state = "IL";
             string fraudState = "Illinois";
 
-            bool isSameState = new AddressChecker(state, fraudState, new Abreviatures().States).IsSameAddress();
+            bool isSameState = this.IsSameAddress(state, fraudState, new Abreviatures().States);
 
             Assert.IsTrue(isSameState);
+        }
+
+        private bool IsSameAddress(string address, string fraudAddress, Hashtable abreviatures)
+        {
+            return new AddressChecker(address, fraudAddress, abreviatures).IsSameAddress();
         }
     }
 }

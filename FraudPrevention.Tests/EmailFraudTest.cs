@@ -13,7 +13,7 @@ namespace FraudPrevention.Tests
             string email = "bugs1@bunny.com";
             string fraudEmail = "bugs.1@bunny.com";
 
-            bool isSameEmail = new EmailChecker(email, fraudEmail).IsSameEmail();
+            bool isSameEmail = this.IsSameEmail(email, fraudEmail);
 
             Assert.IsTrue(isSameEmail);
         }
@@ -24,7 +24,7 @@ namespace FraudPrevention.Tests
             string email = "bugs@bunny.com";
             string fraudEmail = "BuGS@BuNNy.COM";
 
-            bool isSameEmail = new EmailChecker(email, fraudEmail).IsSameEmail();
+            bool isSameEmail = this.IsSameEmail(email, fraudEmail);
 
             Assert.IsTrue(isSameEmail);
         }
@@ -35,9 +35,14 @@ namespace FraudPrevention.Tests
             string email = "bugs@bunny.com";
             string fraudEmail = "bugs+10@bunny.com";
 
-            bool isSameEmail = new EmailChecker(email, fraudEmail).IsSameEmail();
+            bool isSameEmail = this.IsSameEmail(email, fraudEmail);
 
             Assert.IsTrue(isSameEmail);
+        }
+
+        private bool IsSameEmail(string email, string fraudEmail) 
+        {
+            return new EmailChecker(email, fraudEmail).IsSameEmail();
         }
     }
 }
