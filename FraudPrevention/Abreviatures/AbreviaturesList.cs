@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FraudPrevention.Abreviatures
 {
-    internal class AbreviaturesList : IEnumerable<KeyValuePair<string, string>>
+    class AbreviaturesList : IEnumerable<KeyValuePair<string, string>>
     {
         private IDictionary<string, string> abreviatures;
 

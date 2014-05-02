@@ -6,7 +6,7 @@ using FraudPrevention.Abreviatures;
 
 namespace FraudPrevention.Abreviatures
 {
-    internal class StateAbreviatures : IAbreviatures
+    class StateAbreviatures : AbreviatureType
     {
         public AbreviaturesList GetAbreviatures()
         {

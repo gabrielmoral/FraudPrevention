@@ -51,6 +51,7 @@
     <Compile Include="Abreviatures\StateAbreviatures.cs" />
     <Compile Include="AddressChecker.cs" />
     <Compile Include="EmailChecker.cs" />
+    <Compile Include="FraudulentOrderChecker.cs" />
     <Compile Include="FraudulentOrderList.cs" />
     <Compile Include="Abreviatures\IAbreviatures.cs" />
     <Compile Include="Order.cs" />

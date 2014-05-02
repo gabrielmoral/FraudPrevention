@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FraudPrevention.Abreviatures
 {
-    internal class AbreviaturesListEditable : AbreviaturesList
+    class AbreviaturesListEditable : AbreviaturesList
     {
         public void Add(string key, string value)
         {

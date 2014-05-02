@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FraudPrevention.Abreviatures
 {
-    internal interface IAbreviatures
+    interface AbreviatureType
     {
         AbreviaturesList GetAbreviatures();
     }

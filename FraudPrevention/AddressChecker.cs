@@ -8,13 +8,13 @@ using System.Text.RegularExpressions;
 
 namespace FraudPrevention
 {
-    internal class AddressChecker
+    class AddressChecker
     {
         private string address;
         private string fraudAddress;
-        private IAbreviatures abreviatures;
+        private AbreviatureType abreviatures;
 
-        public AddressChecker(string address, string fraudAddress, IAbreviatures abreviatures)
+        public AddressChecker(string address, string fraudAddress, AbreviatureType abreviatures)
         {
             this.address = address;
             this.fraudAddress = fraudAddress;
